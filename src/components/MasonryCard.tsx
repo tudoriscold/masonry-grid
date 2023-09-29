@@ -3,11 +3,10 @@ import Image from "next/image";
 import { Platform, VerifiedCheck } from "@/assets/icons";
 import { MasonryCardProps, RatingVersions } from "@/types/MasonryCard";
 import dynamic from "next/dynamic";
+const Rating = dynamic(() => import("@/components/Rating"), {
+  ssr: false
+});
 
-// const Rating = dynamic(() => import("@/components/Rating"), {
-//   ssr: false
-// });
-import Rating from "./Rating";
 const VerifiedUser = () => {
   return (
     <div className="w-fit flex items-center gap-[5px]">
@@ -65,7 +64,7 @@ const MasonryCard: FC<MasonryCardProps> = ({
             <Platform />
           </div>
         </div>
-        {/* {rating ? <div>{RatingComponent}</div> : null} */}
+        {rating ? <div>{RatingComponent}</div> : null}
         {reviewTitle ? (
           <h2 className="text-[20px] text-gray-700 font-semibold">
             {reviewTitle}
